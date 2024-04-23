@@ -16,7 +16,7 @@ const AddPost = (props) => {
 
   const formik = useFormik({
     initialValues: {
-      title:  "",
+      title: "",
       description: "",
     },
     validationSchema: PostSchema,
@@ -34,7 +34,7 @@ const AddPost = (props) => {
   console.log(record)
 
   return (
-    <Form onSubmit={formik.handleSubmit}>
+    <Form style={{ padding: "20px 0" }} onSubmit={formik.handleSubmit}>
       <Form.Group className="mb-3">
         <Form.Label className="title">title</Form.Label>
         <Form.Control

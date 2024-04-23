@@ -27,12 +27,13 @@ const Index = () => {
   );
   return (
     <Loading isLoading={isLoading} error={error}>
-      <PostList
-        records={records}
-        handleDelete={handleDelete}
-        handleEdit={handleEdit}
-        isLogedIn={isLogedIn}
-      />
+      {isLogedIn ?
+        <PostList
+          records={records}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+          isLogedIn={isLogedIn}
+        /> : <p className="err">Please log in First</p>}
     </Loading>
   );
 };

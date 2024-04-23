@@ -39,7 +39,7 @@ const EditPost = () => {
       {!idTest ? (
         <p className="err">no posting in the list with this id</p>
       ) : (
-        <Form onSubmit={formik.handleSubmit}>
+        <Form style={{ padding: "20px 0" }} onSubmit={formik.handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label className="title">title</Form.Label>
             <Form.Control
