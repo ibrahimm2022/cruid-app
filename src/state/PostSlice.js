@@ -1,4 +1,3 @@
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = { records: [], isLoading: true, error: null, record: {} };
 
@@ -8,7 +7,7 @@ export const fetchPosts = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch("http://localhost:5000/post");
+      const res = await fetch(`${"https://crud-server-1.onrender.com"}/post`);
       const data = res.json();
       return data;
     } catch (error) {
@@ -21,7 +20,9 @@ export const fetchPost = createAsyncThunk(
   async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`http://localhost:5000/post/${id}`);
+      const res = await fetch(
+        `${"https://crud-server-1.onrender.com"}/post/${id}`
+      );
       const data = res.json();
       return data;
     } catch (error) {
@@ -34,7 +35,7 @@ export const deletePost = createAsyncThunk(
   async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      await fetch(`http://localhost:5000/post/${id}`, {
+      await fetch(`${"https://crud-server-1.onrender.com"}/post/${id}`, {
         method: "DELETE",
       });
 
@@ -51,7 +52,7 @@ export const insertPost = createAsyncThunk(
     const { rejectWithValue, getState } = thunkAPI;
     const { auth } = getState();
     try {
-      const res = await fetch("http://localhost:5000/post", {
+      const res = await fetch(`${"https://crud-server-1.onrender.com"}/post`, {
         method: "POST",
         body: JSON.stringify(item),
         headers: {
@@ -70,13 +71,16 @@ export const editPost = createAsyncThunk(
   async (item, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`http://localhost:5000/post/${item.id}`, {
-        method: "PATCH",
-        body: JSON.stringify(item),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
+      const res = await fetch(
+        `${"https://crud-server-1.onrender.com"}/post/${item.id}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(item),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
       const data = res.json();
       return data;
     } catch (error) {
