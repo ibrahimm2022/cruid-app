@@ -9,7 +9,7 @@ const PostList = ({ isLogedIn, records, handleDelete, handleEdit }) => {
       <thead>
         <tr>
           <th>#</th>
-          <th style={{ width: "70%" }}>title</th>
+          <th style={{ width: "71%" }}>title</th>
           <th></th>
         </tr>
       </thead>

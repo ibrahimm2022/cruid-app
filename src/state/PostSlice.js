@@ -7,7 +7,7 @@ export const fetchPosts = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`${"https://crud-server-1.onrender.com"}/post`);
+      const res = await fetch(`${"https://crud-server-1.onrender.com"}/post`,{method:"GET"});
       const data = res.json();
       return data;
     } catch (error) {
@@ -21,7 +21,7 @@ export const fetchPost = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `${"https://crud-server-1.onrender.com"}/post/${id}`
+        `${"https://crud-server-1.onrender.com"}/post/${id}`,{method:"GET"}
       );
       const data = res.json();
       return data;
